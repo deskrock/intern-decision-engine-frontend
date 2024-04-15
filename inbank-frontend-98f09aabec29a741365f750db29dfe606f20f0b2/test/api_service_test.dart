@@ -14,7 +14,7 @@ void main() {
         final response = {
           'loanAmount': 10000,
           'loanPeriod': 12,
-          'errorMessage': 'null',
+          'errorMessage': '',
         };
         return http.Response(jsonEncode(response), 200);
       });
@@ -36,8 +36,8 @@ void main() {
     test('requestLoanDecision returns an error message', () async {
       final mockClient = MockClient((request) async {
         final response = {
-          'loanAmount': 'null',
-          'loanPeriod': 'null',
+          'loanAmount': '',
+          'loanPeriod': '',
           'errorMessage': 'Loan application denied',
         };
         return http.Response(jsonEncode(response), 400);
