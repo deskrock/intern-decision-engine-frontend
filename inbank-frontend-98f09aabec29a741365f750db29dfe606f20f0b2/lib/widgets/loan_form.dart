@@ -32,6 +32,8 @@ class _LoanFormState extends State<LoanForm> {
   // Only submits if the form inputs are validated.
   void _submitForm() async {
     if (_formKey.currentState!.validate() == false) {
+      _loanAmountResult = 0;
+      _loanPeriodResult = 0;
       return;
     }
 
