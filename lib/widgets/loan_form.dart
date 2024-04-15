@@ -31,26 +31,25 @@ class _LoanFormState extends State<LoanForm> {
   // Submit the form and update the state with the loan decision results.
   // Only submits if the form inputs are validated.
   void _submitForm() async {
-    if (_formKey.currentState!.validate()) {
-      final result = await _apiService.requestLoanDecision(
-          _nationalId, _loanAmount, _loanPeriod);
-      setState(() {
-        int tempAmount = int.parse(result['loanAmount'].toString());
-        int tempPeriod = int.parse(result['loanPeriod'].toString());
-
-        if (tempAmount <= _loanAmount || tempPeriod > _loanPeriod) {
-          _loanAmountResult = int.parse(result['loanAmount'].toString());
-          _loanPeriodResult = int.parse(result['loanPeriod'].toString());
-        } else {
-          _loanAmountResult = _loanAmount;
-          _loanPeriodResult = _loanPeriod;
-        }
-        _errorMessage = result['errorMessage'].toString();
-      });
-    } else {
-      _loanAmountResult = 0;
-      _loanPeriodResult = 0;
+    if (_formKey.currentState!.validate() == false) {
+      return;
     }
+
+    final result = await _apiService.requestLoanDecision(
+        _nationalId, _loanAmount, _loanPeriod);
+    setState(() {
+      int parsedAmount = int.parse(result['loanAmount'].toString());
+      int parsedPeriod = int.parse(result['loanPeriod'].toString());
+
+      if (parsedAmount <= _loanAmount || parsedPeriod > _loanPeriod) {
+        _loanAmountResult = parsedAmount;
+        _loanPeriodResult = parsedPeriod;
+      } else {
+        _loanAmountResult = _loanAmount;
+        _loanPeriodResult = _loanPeriod;
+      }
+      _errorMessage = result['errorMessage'].toString();
+    });
   }
 
   // Builds the application form widget.
@@ -152,7 +151,7 @@ class _LoanFormState extends State<LoanForm> {
                           padding: EdgeInsets.only(left: 12),
                           child: Align(
                               alignment: Alignment.centerLeft,
-                              child: Text('6 months')),
+                              child: Text('12 months')),
                         ),
                       ),
                       Expanded(
