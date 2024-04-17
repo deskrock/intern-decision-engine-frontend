@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document is a summary of the code review for this project. This is a review for frontend code only. For backend code, please refer to the backend code review document here: [Backend Code Review](https://github.com/richardscull/inbank-backend-homework).
+This document is a summary of the code review for this project. This is a review for frontend code only. For backend code, please refer to the backend code review document here: [Backend Code Review](https://github.com/richardscull/inbank-backend-homework/blob/main/REVIEW.md).
 
 ## 🛠️ General
 
