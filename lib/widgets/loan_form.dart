@@ -135,7 +135,7 @@ class _LoanFormState extends State<LoanForm> {
                     value: _loanPeriod.toDouble(),
                     min: 12,
                     max: 60,
-                    divisions: 40,
+                    divisions: 48,
                     label: '$_loanPeriod months',
                     activeColor: AppColors.secondaryColor,
                     onChanged: (double newValue) {

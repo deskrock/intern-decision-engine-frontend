@@ -10,7 +10,7 @@ import 'package:inbank_frontend/widgets/loan_form.dart';
 
 // The main function runs the app and shows the `InBankForm` widget.
 void main() {
-  runApp(const MaterialApp(home: InBankForm()));
+  runApp(const InBankForm());
 }
 
 // This widget builds the loan application form.
