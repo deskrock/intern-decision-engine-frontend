@@ -34,6 +34,9 @@ From my perspective, the project is well done. However, there are some things th
 - Invalid minimum loan period as default. In the code was set to 6, but from the design, it should be 12. Fixed.
 - `_submitForm()` function better having just one guard clause, not all conditions in the if statement. Also, the code parses the same value twice, which is not necessary. Fixed.
 - `requestLoanDecision()` "null" handling is bad, null values should be null and not "null" string. Using optional chaining for `toString()` will get null values as `null`. It also lets us use the `??` operator, since `null` isn't a string. (Test was also updated to reflect this change). 
+- `InBankForm()` function in main component was wrapped in `MaterialApp`, which is not necessary, since it is already wrapped in `MaterialApp`. Removed.
+- Loan period slider divisions is not correct. `60-12=48`, not `40`. Fixed.
+- `inbank-frontend-98f09aabec29a741365f750db29dfe606f20f0b2` folder should be removed from the repository, since it is not used anywhere in the project. Removed.
 
 ## 🚀 Conclusion
 
